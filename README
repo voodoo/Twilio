@@ -1,21 +1,20 @@
 == Welcome to Twilio Demos
 
-This is a rails app that implements some Twilio Demos http://www.twilio.com/docs/demos/
-
+This is a rails app that implements some Twilio Demos http://www.twilio.com/docs/demos
 
 == What is Twilio?
 
 http://www.twilio.com/how-twilio-works
 
-
 Kind of a virtual PBX for web developers. 
 
-I think of it as Asterisk (http://www.asterisk.org/) without the necessary hardware/software setup and programmable w/REST commands.
-
-Fire up the app and go to the home page for more info
+* I think of it as Asterisk (http://www.asterisk.org/) without the necessary hardware/software setup 
+* And a (surprisingly easily) programmable interface through REST/XML.
 
 == Getting started
 
 * Sign up for a free Twilio account
 * Rename twilio.example.yml to twilio.yml
 * Copy your AccountSid and AuthToken from your Twilio account
+
+Fire up the app and go to the home page for more info
