@@ -7,5 +7,5 @@ class Hashit
     end
   end
 end
-puts "Loading TWILIO config"
+puts "Loading TWILIO config from #{__FILE__}"
 TWILIO = Hashit.new(YAML.load_file(File.join(Rails.root, "config", "twilio.yml"))[RAILS_ENV])
