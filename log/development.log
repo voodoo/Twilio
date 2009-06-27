@@ -705,3 +705,9 @@ Processing TwilioController#board (for 127.0.0.1 at 2009-06-27 12:18:13) [GET]
   Parameters: {"Digits"=>"1"}
 Rendering twilio/board
 Completed in 3ms (View: 1, DB: 0) | 200 OK [http://localhost/twilio/board?Digits=1]
+
+
+Processing TwilioController#board (for 127.0.0.1 at 2009-06-27 12:57:47) [GET]
+  Parameters: {"Digits"=>"1"}
+Rendering twilio/board
+Completed in 9ms (View: 7, DB: 0) | 200 OK [http://localhost/twilio/board?Digits=1]
