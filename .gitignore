@@ -1,1 +1,5 @@
-config/twilio.yml
+conf/twilio.yml
+log/*.log
+tmp/**/*
+doc/api
+doc/app
