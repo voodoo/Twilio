@@ -1,4 +1,0 @@
-development:
-  url: https://api.twilio.com/2008-08-01/Accounts
-  sid: YOUR_SID
-  token: YOUR_TOKEN
