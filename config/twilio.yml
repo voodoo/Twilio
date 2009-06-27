@@ -1,4 +1,4 @@
 development:
   url: https://api.twilio.com/2008-08-01/Accounts
-  sid: AC6b0c8045d3f27f8b9e203b6f5a91f6d7
-  token: e98bc9c59e4afd9106e69a22d356cd22
+  sid: YOUR_SID
+  token: YOUR_TOKEN
