@@ -1,0 +1,7 @@
+config/twilio.yml
+db/*.sqlite3
+log/*.log
+tmp/**/*
+doc/api
+doc/app
+
