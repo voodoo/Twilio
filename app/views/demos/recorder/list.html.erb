@@ -1,0 +1,12 @@
+<%#= @recordings['numpages'].to_i + 1 %>
+<% if @recordings['page'].to_i  <   (@recordings['numpages'].to_i - 1)%>
+<%= link_to "Next", "?page=#{@recordings['page'].to_i+1}" %>
+<% end %>
+<ul>
+<% for recording in @recordings['Recording'] %>
+  <li>
+    <%= link_to recording['Sid'], "#{TWILIO.url}/#{TWILIO.sid}/Recordings/#{recording['Sid']}.mp3" %>
+    <%= recording.inspect %>
+  </li>
+<% end %>
+</ul>

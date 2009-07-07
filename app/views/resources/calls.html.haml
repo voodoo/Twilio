@@ -1,0 +1,14 @@
+%ul{:id => 'Calls', :title => 'Calls', :selected => "true"}
+  - for call in @calls
+    %li
+      - link_to "/resources/call/#{call['Sid']}" do
+        .sub= call['DateCreated']
+        Caller:
+        = call['Caller']
+        %br/
+        Called:
+        = call['Called']
+        .sub
+          lasting 
+          = call['Duration']
+          seconds

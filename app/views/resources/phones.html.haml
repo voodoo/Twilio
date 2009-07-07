@@ -1,0 +1,10 @@
+%ul{:id => 'Phones', :title => 'Phones', :selected => "true"}
+  - for phone in @phones
+    %li
+      - if iphone?
+        - link_to "tel:#{phone['PhoneNumber']}" do
+          = phone['PhoneNumber']
+          .sub= phone['FriendlyName']
+      - else
+        = phone['PhoneNumber']
+        .sub= phone['FriendlyName']

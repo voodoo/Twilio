@@ -1,0 +1,5 @@
+%ul{:id => 'Recordings', :title => 'Recordings', :selected => "true"}
+  - for recording in @recordings
+    %li{:class => 'group'}= recording['DateCreated']
+    %li= link_to 'Call', "/resources/call/#{recording['CallSid']}"
+    %li= link_to 'Recording', twilio_recording_path(recording['Sid']), :target => '_blank'

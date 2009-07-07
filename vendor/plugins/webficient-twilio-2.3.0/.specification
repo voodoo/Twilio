@@ -1,0 +1,126 @@
+--- !ruby/object:Gem::Specification 
+name: webficient-twilio
+version: !ruby/object:Gem::Version 
+  version: 2.3.0
+platform: ruby
+authors: 
+- Phil Misiowiec
+autorequire: 
+bindir: bin
+cert_chain: []
+
+date: 2009-06-22 00:00:00 -05:00
+default_executable: 
+dependencies: 
+- !ruby/object:Gem::Dependency 
+  name: builder
+  type: :runtime
+  version_requirement: 
+  version_requirements: !ruby/object:Gem::Requirement 
+    requirements: 
+    - - ">="
+      - !ruby/object:Gem::Version 
+        version: "0"
+    version: 
+- !ruby/object:Gem::Dependency 
+  name: httparty
+  type: :runtime
+  version_requirement: 
+  version_requirements: !ruby/object:Gem::Requirement 
+    requirements: 
+    - - ">="
+      - !ruby/object:Gem::Version 
+        version: "0"
+    version: 
+description: 
+email: github@webficient.com
+executables: []
+
+extensions: []
+
+extra_rdoc_files: 
+- LICENSE
+- README.rdoc
+files: 
+- LICENSE
+- README.rdoc
+- Rakefile
+- VERSION.yml
+- lib/twilio.rb
+- lib/twilio/account.rb
+- lib/twilio/call.rb
+- lib/twilio/connection.rb
+- lib/twilio/incoming_phone_number.rb
+- lib/twilio/local_phone_number.rb
+- lib/twilio/notification.rb
+- lib/twilio/outgoing_caller_id.rb
+- lib/twilio/recording.rb
+- lib/twilio/toll_free_phone_number.rb
+- lib/twilio/twilio_object.rb
+- lib/twilio/verb.rb
+- test/fixtures/xml/account.xml
+- test/fixtures/xml/account_renamed.xml
+- test/fixtures/xml/call.xml
+- test/fixtures/xml/call_new.xml
+- test/fixtures/xml/calls.xml
+- test/fixtures/xml/incoming_phone_number.xml
+- test/fixtures/xml/incoming_phone_numbers.xml
+- test/fixtures/xml/notification.xml
+- test/fixtures/xml/notifications.xml
+- test/fixtures/xml/outgoing_caller_id.xml
+- test/fixtures/xml/outgoing_caller_id_new.xml
+- test/fixtures/xml/outgoing_caller_ids.xml
+- test/fixtures/xml/recording.xml
+- test/fixtures/xml/recordings.xml
+- test/fixtures/xml/transcription.xml
+- test/fixtures/xml/transcriptions.xml
+- test/fixtures/yml/verb_responses.yml
+- test/test_helper.rb
+- test/twilio/account_test.rb
+- test/twilio/call_test.rb
+- test/twilio/connection_test.rb
+- test/twilio/incoming_phone_number_test.rb
+- test/twilio/local_phone_number_test.rb
+- test/twilio/notification_test.rb
+- test/twilio/outgoing_caller_id_test.rb
+- test/twilio/recording_test.rb
+- test/twilio/toll_free_phone_number_test.rb
+- test/twilio/verb_test.rb
+has_rdoc: true
+homepage: http://github.com/webficient/twilio
+post_install_message: 
+rdoc_options: 
+- --charset=UTF-8
+require_paths: 
+- lib
+required_ruby_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      version: "0"
+  version: 
+required_rubygems_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      version: "0"
+  version: 
+requirements: []
+
+rubyforge_project: 
+rubygems_version: 1.3.1
+signing_key: 
+specification_version: 2
+summary: Twilio API Client
+test_files: 
+- test/test_helper.rb
+- test/twilio/account_test.rb
+- test/twilio/call_test.rb
+- test/twilio/connection_test.rb
+- test/twilio/incoming_phone_number_test.rb
+- test/twilio/local_phone_number_test.rb
+- test/twilio/notification_test.rb
+- test/twilio/outgoing_caller_id_test.rb
+- test/twilio/recording_test.rb
+- test/twilio/toll_free_phone_number_test.rb
+- test/twilio/verb_test.rb

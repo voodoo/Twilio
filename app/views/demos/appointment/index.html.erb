@@ -1,0 +1,10 @@
+<% if @number %>
+  <h2 style="color: #ff0000">Calling <%= @number %></h2>
+<% else %>
+  <h1>Twilio phone reminder demo</h1>
+  <h3>Enter your phone number to receive an automated reminder</h3>
+  <form  method="post">
+      <input type="text" name="number" value="(512) 519-9466"/>
+      <input type="submit" value="Call me!">
+  </form>
+<% end %>

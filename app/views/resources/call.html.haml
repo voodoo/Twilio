@@ -1,0 +1,5 @@
+%ul{:id => 'Call', :title => 'A Call', :selected => "true"}
+  - for field in @call
+    %li
+      .sub= field[0]
+      = field[1]

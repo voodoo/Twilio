@@ -1,0 +1,3 @@
+%ul{:id => 'Notifications', :title => 'Notifications', :selected => "true"}
+  - for notification in @notifications
+    %li= notification.inspect

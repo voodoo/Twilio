@@ -1,0 +1,13 @@
+%fieldset
+  .row
+    %label Name
+    = f.text_field :name
+  .row
+    %label Gather?
+    = f.check_box :gather 
+  .row
+    %label Action
+    = f.text_field :action
+  - unless @twiml.new_record?
+    .row= link_to 'Delete', twiml_path(@twiml), :class => 'grayButton', :method => 'delete', :confirm => 'Really?'
+    

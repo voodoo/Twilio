@@ -1,0 +1,23 @@
+!!! XML
+
+%html
+  %head
+    %title= @title
+    %meta{:id => "viewport", :name => "viewport", :content => "width=320; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"}
+    = stylesheet_link_tag '/iui/iui.css', '/stylesheets/iphone.css'
+    = javascript_include_tag '/javascripts/iphone.js'#'/iui/iui.js',
+    /    %link{:rel => 'apple-touch-icon', :href=>'/images/apple-touch-icon.png', :type => "text/css"}
+  %body
+    .toolbar
+      %h1{:id => :pageTitle}= @title || controller.controller_name.capitalize
+      -# all actions get a back button unless @back is set to false 
+      - unless @back === false
+        - if @back.class == Hash
+          = link_to  @back.keys.first, @back.values.first, :id => 'backButton', :class => 'button'  
+        - else
+          = link_to  'Back', 'javascript:history.back()', :id => 'backButton', :class => 'button'
+        = link_to 'Home', '/', :class => 'button' 
+    - if flash[:notice]
+      #flash_notice
+        = flash[:notice]
+    = yield

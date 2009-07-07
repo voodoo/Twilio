@@ -1,4 +1,4 @@
-== Welcome to Twilio Demos
+== Welcome to Twilio Demos with Ruby on Rails
 
 This is a rails app that implements some Twilio Demos http://www.twilio.com/docs/demos
 
@@ -9,12 +9,40 @@ http://www.twilio.com/how-twilio-works
 Kind of a virtual PBX for web developers. 
 
 * I think of it as Asterisk (http://www.asterisk.org/) without the necessary hardware/software setup 
-* And a (surprisingly easily) programmable interface through REST/XML.
+* And a (surprisingly easily) programmable interface through REST/XML
 
 == Getting started
 
 * Sign up for a free Twilio account
+* clone this app
+#> git clone git@github.com:voodoo/Twilio.git
 * Rename twilio.example.yml to twilio.yml
-* Copy your AccountSid and AuthToken from your Twilio account
+* Copy your AccountSid and AuthToken from your Twilio account into twilio.yml
 
-Fire up the app and go to the home page for more info
+== That is it
+
+Fire up the app and open it in the browser for more info and web links to each demo app (including a switchboard) to 
+access them from a phone
+
+For developing, you need to have this on a public server
+
+Rather than git push'ing every time I configure my router to forward my public ip to my local machine using port forwarding
+
+To test on the phone, you will need this url set in your Account section on Twilio 
+
+Mine looks something like this
+
+http://my_public_ip:3000/twilio/board
+
+== More
+
+I avoided using any dependencies because I wanted this demo to be simple to setup
+
+But it was hard in a way because I would have liked to have used a couple of gems like the following
+
+* http://github.com/webficient/twilio/tree/master
+** Which a nice gem for programatically generating xml with Twilio classes
+** I decided to keep it out for now and expose things with xml builder so the details would not be hidden
+* Some sort of yaml config
+
+

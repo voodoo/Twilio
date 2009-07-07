@@ -1,0 +1,28 @@
+div.sub{
+	color:#999;
+	font-size:80%;
+}
+
+
+body > ul > li > a.add {
+	color:teal;
+  background: url(/images/icons/add.png) no-repeat 98% center;
+}
+
+#backButton {
+    display: block;
+
+}
+
+#flash_notice{
+	padding:6px;
+	color:white;
+	position:absolute;
+	left:0;
+	top:0;
+	background:#336699;
+	height:32px;
+	font-weight:bold;
+	opacity:.8;
+	text-align:center;
+}

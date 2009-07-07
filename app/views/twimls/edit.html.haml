@@ -1,0 +1,27 @@
+- form_for @twiml, :html => {:class => 'panel', :selected => 'true', :id => 'updateTwimlForm'} do |f|
+  = render :partial => 'form', :locals => {:f => f}  
+  = hidden_field_tag '_method', 'put'
+  = link_to_function "Update", '$("updateTwimlForm").submit()', :class => 'whiteButton', :type => 'submit'
+    
+- form_for @verb, :html => {:class => 'panel', :id => 'newVerbForm'} do |f|
+  %h2{:onclick => "$('newVerb').toggle()"}
+    = image_tag "/images/icons/add.png"
+    New Verb
+  %fieldset{:id => 'newVerb', :style => 'display:none;'}
+    .row
+      %label Type
+      = f.select :verb_type, [['Play','Play'], ['Say', 'Say']]
+    .row
+      %label Text
+      = f.text_area :text 
+    = f.hidden_field 'twiml_id', :value => @twiml.id
+    = link_to_function "Create", '$("newVerbForm").submit()', :class => 'whiteButton', :type => 'submit', :style => 'margin:12px;'
+  
+%ul
+  %li
+    .sub Verbs
+  - for verb in @twiml.verbs
+    %li
+      - link_to edit_verb_path(verb) do
+        = verb.verb_type
+        .sub= verb.text  

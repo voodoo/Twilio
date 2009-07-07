@@ -1,0 +1,39 @@
+= Twilio Gem
+
+The Twilio gem provides two major pieces of functionality: (1) a Ruby wrapper for the Twilio REST API and (2) response handlers based on the Twilio Markup XML (TwiML).
+
+See http://www.twilio.com/docs/index for Twilio's API documentation.
+
+For an overview of the Twilio Gem and a sample use case, check out http://www.webficient.com/2009/06/22/hello-this-is-your-rails-app-calling-you.
+
+== Calling the Twilio REST API
+
+First set your credentials by calling the connect method:
+
+  Twilio.connect('my_twilio_sid', 'my_auth_token')
+  
+Now call any of the Twilio classes:
+  
+  Twilio::Call.make('1234567890', '9876543210', 'http://mysite.com/connected_call')
+  Twilio::Recording.list
+  
+== Responding to Twilio
+
+When Twilio calls your application URL, your response must use the Twilio Markup XML (http://www.twilio.com/docs/api_reference/TwiML/). The Twilio gem makes this very easy 
+by providing a Twilio Verb class. 
+
+For example, in a Ruby on Rails application, you could do the following inside a controller class:
+
+  Twilio::Verb.dial('415-123-4567')
+  
+and you can nest multiple verbs inside a block:
+
+  verb = Twilio::Verb.new { |v|
+    v.say("The time is #{Time.now}")
+    v.hangup
+  }
+  verb.response
+
+== Copyright
+
+Copyright (c) 2009 Phil Misiowiec, Webficient LLC. See LICENSE for details.

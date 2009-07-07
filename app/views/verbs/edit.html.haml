@@ -1,0 +1,13 @@
+- form_for @verb, :html => {:class => 'panel', :id => 'newVerbForm'} do |f|
+  %fieldset
+    .row
+      %label Type
+      = f.select :verb_type, [['Play','Play'], ['Say', 'Say']]
+    .row
+      %label Action
+      = f.text_field :action
+    .row
+      %label Text
+      = f.text_area :text 
+    = link_to "Delete", verb_path(@verb), :class => 'grayButton', :confirm => 'Really?', :method => 'delete', :style => 'margin:12px;'
+    = link_to_function "Update", 'document.getElementById("newVerbForm").submit()', :class => 'whiteButton', :type => 'submit', :style => 'margin:12px;'
