@@ -1,4 +1,12 @@
 development:
-  url: https://api.twilio.com/2008-08-01/Accounts
-  sid: YOUR_SID
-  token: YOUR_TOKEN
+  email: EMAIL
+  email_user: USER
+  email_smtp: smtp.gmail.com
+  email_password: PASSWORD
+  api: 2008-08-01
+  api_url: https://api.twilio.com
+  sid: SID
+  token: TOKEN
+  phone: PHONE
+  sandbox_phone: (866) 583-6913
+  sandbox_pin: PIN
