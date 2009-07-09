@@ -2,12 +2,22 @@
   .row
     %label Name
     = f.text_field :name
-  .row
-    %label Gather?
-    = f.check_box :gather 
-  .row
-    %label Action
-    = f.text_field :action
-  - unless @twiml.new_record?
-    .row= link_to 'Delete', twiml_path(@twiml), :class => 'grayButton', :method => 'delete', :confirm => 'Really?'
+  /.row
+  /  %label Gather?
+  /  = f.check_box :gather 
+  / .row
+  /   %label Action
+  /   = f.text_field :action
+  - if @twiml.new_record?
+    .row= link_to_function "Create", 'document.forms[0].submit()', :class => 'whiteButton', :type => 'submit'
+  - else
+    .row
+      %span
+        - unless @twiml.last?
+          = link_to 'Move Up'
+          |
+        - unless @twiml.first?
+          = link_to 'Move Down' 
+          |      
+        = link_to 'Delete', twiml_path(@twiml), :method => 'delete', :confirm => 'Really?'
     

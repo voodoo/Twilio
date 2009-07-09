@@ -1,0 +1,8 @@
+- title "Edit Pet"
+
+= render :partial => 'form'
+
+%p
+  = link_to "Edit", edit_pet_path(@pet)
+  |
+  = link_to "View All", pets_path

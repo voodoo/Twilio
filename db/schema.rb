@@ -9,20 +9,47 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090706213057) do
+ActiveRecord::Schema.define(:version => 20090709125912) do
+
+  create_table "pets", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "dog_or_cat",    :default => "Dog"
+    t.string   "lost_or_found", :default => "Lost"
+    t.string   "sex",           :default => "Male"
+    t.string   "color"
+    t.string   "weight"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "twimls", :force => true do |t|
+    t.integer  "position"
     t.string   "name"
-    t.boolean  "gather"
     t.string   "action"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "username"
+    t.string   "email"
+    t.string   "phone"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "password_hash"
+    t.string   "password_salt"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "verbs", :force => true do |t|
     t.integer  "twiml_id"
-    t.string   "voice"
+    t.integer  "position"
     t.string   "action"
+    t.string   "action_type"
     t.string   "text"
     t.string   "verb_type"
     t.datetime "created_at"

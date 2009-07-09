@@ -1,0 +1,10 @@
+%ul
+  - for link in navigation_links
+    %li{:class => (current_page?(link[1]) ? 'current_page_item' : '') }
+      = link_to link[0],link[1]      
+  .div{:style => 'float:right'}
+    - if logged_in?
+      %li= link_to 'Profile', user_path(current_user)
+      %li= link_to 'Logout', logout_path
+    - else
+      %li= link_to 'Login', login_path

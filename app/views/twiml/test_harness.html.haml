@@ -1,0 +1,5 @@
+%ul
+  - for twiml in @twimls
+    %li{:class => 'group'}== #{twiml.name}
+    %li= link_to "Board", "/twiml/#{twiml.name}.xml", :method => 'post'
+    %li= link_to "Response", "/twiml/#{twiml.name}.xml?Digits=1"

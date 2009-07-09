@@ -1,29 +1,30 @@
 class TwimlController < ApplicationController
-  before_filter :set_twiml
+  #before_filter :set_twiml
   def index
-    if request.post?
-      render :action => 'create'
+    
+    if params[:id]
+      @twiml  = Twiml.find_by_name(params[:id]) 
     else
-      render :action => 'show'
+      @twiml  = Twiml.first
     end
+    
+    if request.post?      
+      render :action => 'board'
+    else
+      # Respond to Gather
+      @digit = params[:Digits].to_i
+      @action = @twiml.verbs[@digit-1] if @twiml # Prob should just throw error
+      render :action => 'respond'
+    end
+    
     respond_to do |format| 
         format.xml{}  
     end    
+  
   end
-  # 
-  # def show
-  #   respond_to do |format| 
-  #       format.xml{}  
-  #   end    
-  # end
-  # def create
-  #   respond_to do |format| 
-  #       format.xml{}  
-  #   end
-  # end  
-  protected
-  def set_twiml
-    @twiml = Twiml.find_by_name(params[:id])  
- 
+  
+  def test_harness
+    @twimls = Twiml.all
   end
+
 end

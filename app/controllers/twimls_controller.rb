@@ -1,4 +1,5 @@
 class TwimlsController < ApplicationController
+  layout 'iphone'
   
   def index
     @twimls = Twiml.all
@@ -9,9 +10,9 @@ class TwimlsController < ApplicationController
   end
   
   def create
-    Twiml.create(params[:twiml])
+    twiml = Twiml.create(params[:twiml])
     flash[:notice] = "Twiml created"
-    redirect_to twimls_path
+    redirect_to twiml_path(twiml)
   end
 
   def edit
@@ -28,12 +29,7 @@ class TwimlsController < ApplicationController
   
   def show
     @twiml = Twiml.find_by_name(params[:id])
-    if params[:Digits]
-      render :action => 'action'
-    end
-    respond_to do |format| 
-        format.xml{}  
-    end
+
   end
   
   def destroy

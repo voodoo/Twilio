@@ -1,0 +1,101 @@
+Field Set Forms
+========
+
+A simple plugin that makes forms so much easier to deal with.
+
+  * Automatically marks fields as required (based on validates_presence_of ala validation_reflection, included)
+  * Humanizes and titleizes labels based on column names (first_name becomes 'First Name')
+  * Includes error messages in-line
+  * Comes with a clean and simple style out of the box (so you can install hit the ground running)
+  * Global reassignment of the required mark (defaults to *, but you can make it anything, even an image)
+
+
+Using in Rails
+=======
+
+Example model:
+
+    class Contact < ActiveRecord::Base
+      validates_presence_of :last_name, :date_of_birth, :email
+    end
+
+Example fieldset_form_for:
+
+    <% fieldset_form_for @contact do |f| %>
+        <%= f.text_field :first_name %>
+        <%= f.text_field :last_name %>
+        <%= f.text_field :email, :label => 'E-mail' %>
+        <%= f.text_field :date_of_birth, :titleize => false %>
+        <%= f.submit 'Create' %>
+    <% end %>
+
+Creates a form that will look roughly like:
+
+    First Name
+    [_______________________]
+    Last Name *
+    [_______________________]
+    E-mail *
+    [_______________________]
+    Date of birth *
+    [_______________________]
+  
+    (Create)
+
+
+Out of Box Style Sheet
+========
+
+If you want to get up and running quickly you can use the included style sheet 'fieldset_forms.css'
+and simply include it into your layout:
+
+    <%= stylesheet_link_tag 'fieldset_forms' %>
+
+    
+
+Customize the Required Marker
+=======
+
+If you don't like the default * you can easily override the required marker.  Just add to your environment.rb:
+
+  FieldSetFormBuilder::REQUIRED_MARK = ' (*)'    
+  
+      or
+    
+  FieldSetFormBuilder::REQUIRED_MARK = "<img src='/images/require-bullet.png' />"  # use image instead of string-character   
+
+
+
+Customized Lables
+=======
+
+If you don't like the outcome the humanization of labels you can override them:
+
+    <%= f.text_field :with_a_reallyugly_column_name, :label => 'Ugly column' %>
+  
+If you do not wish to have a label be titleized you can do:
+
+    <%= f.text_field :do_you_want_doughnuts, :titleize => false %>
+
+
+
+Reporting Bugs / Request Features
+========
+
+E-mail ncancelliere at gmail dot com, include in subject line "Field-Set-Forms"
+
+
+
+========
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+field_set_form_builder Copyright (c) 2009 Nicholas Cancelliere (www.ozmox.com)
+validation_reflection  Copyright (c) 2006-2008, Michael Schuerig
+
+

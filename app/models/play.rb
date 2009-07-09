@@ -1,2 +1,0 @@
-class Play < Verb
-end

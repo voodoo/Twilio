@@ -1,0 +1,17 @@
+-if @pets and !@pets.empty?
+  = render :partial => 'pets'
+  
+- @title = "Search"
+- form_for :search, :url => '/pets/search' do |f|
+  = f.label :sex
+  = f.select :sex, [['Male', 'Male'], ['Female','Female']]
+  = f.label "Dog or Cat"
+  = f.select :dog_or_cat, [['Dog', 'Dog'], ['Cat','Cat']]
+  = f.label "Lost or Found"
+  = f.select :lost_or_found, [['Lost', 'Lost'], ['Found','Found']]
+  = f.label "Zip"
+  = f.text_field :zip
+  %br/
+  = f.submit "Start Search"
+  
+  

@@ -1,5 +1,6 @@
+- @next = {'New', new_twiml_path}
 %ul{:id => 'Twimls', :title => 'Twimls', :selected => "true"}
   - for twiml in @twimls
     %li
-      = link_to twiml.name, edit_twiml_path(twiml)
+      = link_to twiml.name, twiml_path(twiml)
   %li= link_to "New Twiml", new_twiml_path, :class => 'add'

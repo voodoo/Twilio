@@ -1,0 +1,3 @@
+- form_for @verb, :html => {:class => 'panel', :id => 'newVerbForm'} do |f|
+  %h2== Add a Verb to '#{@twiml.name}'
+  = render :partial => 'form', :locals => {:f => f}

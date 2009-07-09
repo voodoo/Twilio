@@ -318,8 +318,8 @@ fieldset > .row:last-child {
 */
 .row > input[type|=radio], .row > input[type|=checkbox] {
   margin: 7px 7px 0 0;
-  height: 25px;
-  width: 25px;
+  height: 40px;
+  width: 40px;
 }
 .row > input:not(input[type|=radio]):not(input[type|=checkbox]), textarea, select {
     box-sizing: border-box;

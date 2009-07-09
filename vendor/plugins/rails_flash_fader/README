@@ -1,0 +1,21 @@
+FlashFader
+==========
+
+A simple plug-in that adds a helper method to display flash messages.  The flash message 
+is wrapped in a div called "flash-message".  The keyword of the flash is the class of the 
+interior div, this provides an agnostic, flexible way to style the messages as you see fit.
+
+Provide the option :fade with the number of seconds to stay on screen, before fade starts.
+Requires the Rails <%= javascript_include_tag :all %> if you desire to use the fade effects.
+
+To use simply add the method to your layout.
+
+
+Examples
+========
+
+<%= flash_messages %>  or
+
+<%= flash_messages(:fade => 3) %>
+
+Copyright (c) 2009 Nicholas Cancelliere (www.ozmox.com), released under the MIT license

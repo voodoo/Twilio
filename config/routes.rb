@@ -1,9 +1,22 @@
 ActionController::Routing::Routes.draw do |map|
-  #map.resource :twiml, :members => {:create => :post, :show => :get}
-  map.connect '/twiml/:id.:format', :controller => 'twiml', :action => 'index'#, :member => {:show => :get, :create => :post}
-  map.resources :twimls
-  map.resources :verbs
-  map.root :controller => "home" 
+  map.signup 'signup', :controller => 'users', :action => 'new'
+  map.logout 'logout', :controller => 'sessions', :action => 'destroy'
+  map.login 'login', :controller => 'sessions', :action => 'new'
+  
+  map.resources :sessions
+  map.resources :users, :has_many => :pets
+  map.resources :pets, :collection => {:lost => :get, :found => :get, :search => :get, :cats => :get, :dogs => :get}
+
+
+  # Couldn't find a better way to do this but this works
+  map.harness '/twiml/test_harness', :controller => 'twiml', :action => 'test_harness'
+  map.connect '/twiml/:id.:format', :controller => 'twiml', :action => 'index'
+  map.connect '/twiml.:format',     :controller => 'twiml', :action => 'index'
+  
+  map.resources :twimls, :member => {:move_higher => :put, :move_lower => :put}
+  map.resources :verbs,  :member => {:move_higher => :put, :move_lower => :put}
+  
+  map.root :controller => "pets" 
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
 

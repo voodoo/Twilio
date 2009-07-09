@@ -1,4 +1,5 @@
 class ResourcesController < ApplicationController
+  layout 'iphone'
   before_filter :twilio_connect
   def calls
     @response = Twilio::Call.list

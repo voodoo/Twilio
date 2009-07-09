@@ -1,0 +1,35 @@
+%fieldset
+
+  .row
+    %label Type
+    = f.select :verb_type, [['Say', 'Say'], ['Play','Play']]
+
+  .row
+    %label Text
+    = f.text_area :text
+  
+  .row
+    %label What will happen when this Verb is selected?
+    
+  .row
+    %label Action Type
+    = f.select :action_type, [['Dial', 'Dial'], ['Say', 'Say'], ['Redirect', 'Redirect'], ['Play','Play']]
+
+  .row
+    %label Action Text
+    = f.text_field :action
+  - if @verb.new_record?
+    .row= link_to_function "Create", 'document.getElementById("newVerbForm").submit()', :class => 'whiteButton', :type => 'submit', :style => 'margin:12px;'
+  - else
+    .row
+      %span
+        - unless @verb.last?
+          = link_to 'Move Down', move_lower_verb_path(@verb), :method => :put
+          |
+        - unless @verb.first?
+          = link_to 'Move Up' , move_higher_verb_path(@verb), :method => :put
+          |    
+        = link_to "Delete", verb_path(@verb),:confirm => 'Really?', :method => 'delete'    
+    .row= link_to_function "Update", 'document.getElementById("newVerbForm").submit()', :class => 'whiteButton', :type => 'submit', :style => 'margin:12px;'
+     
+  = f.hidden_field :twiml_id

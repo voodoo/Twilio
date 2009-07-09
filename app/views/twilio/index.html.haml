@@ -1,0 +1,14 @@
+- title "Twilio Demo"
+- @back = false
+%ul{:id => 'home', :title => 'Twilio Demo', :selected => "true"}
+  %li= link_to "Twimls", twimls_path 
+  %li= link_to "Resources", "/resources"
+  /%li= link_to "Demos", "/home/demos"
+  %li= link_to "Settings", "/twilio/settings"
+  - if iphone?
+    %li= link_to TWILIO.sandbox_phone, "tel:#{TWILIO.sandbox_phone}"
+  %li= link_to "Test", "/twiml/test_harness"
+  
+
+  
+  

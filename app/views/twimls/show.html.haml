@@ -1,0 +1,14 @@
+- title 'Twiml'
+- @next= {"New Verb", new_verb_path(:twiml_id => @twiml.id)}
+%ul{:id => 'twiml', :selected => "true"}
+  %li= link_to @twiml.name, edit_twiml_path(@twiml)     
+  %li{:class => 'group'} Verbs
+  - @twiml.verbs.each_with_index do |verb, i|
+    %li
+      - link_to edit_verb_path(verb) do
+        == #{i + 1})
+        = verb.verb_type
+        .sub= verb.text
+        .sub
+          %em== Action is a <b>#{verb.action_type}</b> = #{verb.action}
+      

@@ -1,0 +1,10 @@
+- fieldset_form_for @pet do |f|
+  = f.error_messages
+  = f.text_field :name
+  = f.select :sex, [['Male', 'Male'], ['Female','Female']]
+  = f.select :dog_or_cat, [['Dog', 'Dog'], ['Cat','Cat']]
+  = f.select :lost_or_found, [['Lost', 'Lost'], ['Found','Found']]
+  = f.text_field :color
+  = f.text_field :weight
+  = f.text_field :description
+  = f.submit "Submit"

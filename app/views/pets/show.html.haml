@@ -1,0 +1,27 @@
+- title "Pet"
+
+%p
+  %strong Name:
+  =h @pet.name
+%p
+  %strong Dog Or Cat:
+  =h @pet.dog_or_cat
+%p
+  %strong Lost Or Found:
+  =h @pet.lost_or_found
+%p
+  %strong Color:
+  =h @pet.color
+%p
+  %strong Weight:
+  =h @pet.weight
+%p
+  %strong Description:
+  =h @pet.description
+
+%p
+  = link_to "Edit", edit_pet_path(@pet)
+  |
+  = link_to "Destroy", @pet, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", pets_path

@@ -2,8 +2,9 @@ class CreateVerbs < ActiveRecord::Migration
   def self.up
     create_table :verbs do |t|
       t.integer :twiml_id
-      t.string :voice
+      t.integer :position
       t.string :action
+      t.string :action_type
       t.string :text
       t.string :verb_type
       t.timestamps

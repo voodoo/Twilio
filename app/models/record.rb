@@ -1,2 +1,0 @@
-class Record < Verb
-end

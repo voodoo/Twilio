@@ -2,6 +2,8 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
+  include Authentication
+
   protected
   def twilio_connect    
     Twilio.connect(TWILIO.sid, TWILIO.token)

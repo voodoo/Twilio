@@ -1,23 +1,50 @@
-!!! XML
-
-%html
+!!! Strict
+%html{ "xml:lang" => "en", :xmlns => "http://www.w3.org/1999/xhtml" }
   %head
-    %title= @title
-    %meta{:id => "viewport", :name => "viewport", :content => "width=320; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"}
-    = stylesheet_link_tag '/iui/iui.css', '/stylesheets/iphone.css'
-    = javascript_include_tag '/javascripts/iphone.js'#'/iui/iui.js',
-    /    %link{:rel => 'apple-touch-icon', :href=>'/images/apple-touch-icon.png', :type => "text/css"}
+    %meta{ :content => "text/html;  charset=iso-8859-1", "http-equiv" => "Content-Type" }
+    %meta{ :name => "description", :content => "lost and found dogs and cats" }
+    %meta{ :name => "keywords", :content => "lost and found animals, dogs and cats" }
+    = stylesheet_link_tag 'app','scaffold', 'fieldset_forms', 'box', 'button'
+    = javascript_include_tag :defaults
+    %title
+      Lost &amp; Found Dogs &amp; Cats
   %body
-    .toolbar
-      %h1{:id => :pageTitle}= @title || controller.controller_name.capitalize
-      -# all actions get a back button unless @back is set to false 
-      - unless @back === false
-        - if @back.class == Hash
-          = link_to  @back.keys.first, @back.values.first, :id => 'backButton', :class => 'button'  
-        - else
-          = link_to  'Back', 'javascript:history.back()', :id => 'backButton', :class => 'button'
-        = link_to 'Home', '/', :class => 'button' 
-    - if flash[:notice]
-      #flash_notice
-        = flash[:notice]
-    = yield
+    #container
+      #header
+        %h1          
+          LOST &amp;
+          %span
+            FOUND
+          %small{:style => 'float:right'}
+            Dogs
+            %span &amp; Cats        
+      #wrapper
+        #navigation
+          = render :partial => 'layouts/navigation'
+        #content-wrapper
+          #content
+            - if @title
+              %h1= @title
+            = flash_messages(:fade => 5)
+            = yield
+        #sidebar-wrapper
+          #sidebar
+            %h3
+              Lost
+            %ul#sidenotes
+              %li
+                %a{ :href => cats_pets_path }
+                  Cats
+              %li
+                %a{ :href => dogs_pets_path }
+                  Dogs
+              %li
+                %a{ :href => new_pet_path }
+                  Submit
+        #footer
+          By
+          %a{ :href => "http://Integrated-Internet.com" }
+            Integrated Internet
+          and
+          %a{ :href => "http://PetVetRecs.com" }
+            Pet Vet Records

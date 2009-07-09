@@ -1,8 +1,14 @@
 class VerbsController < ApplicationController
+  
   def create
-    Verb.create(params[:verb])
-    redirect_to twimls_path
+    verb = Verb.create(params[:verb])
+    redirect_to twiml_path(verb.twiml)
     flash[:notice] = "Twiml Verb created"
+  end
+  
+  def new
+    @twiml = Twiml.find(params[:twiml_id])
+    @verb = Verb.new(:twiml_id => @twiml.id)
   end
   
   def edit
@@ -12,9 +18,10 @@ class VerbsController < ApplicationController
   def update
     @verb = Verb.find(params[:id])
     @verb.update_attributes(params[:verb])
-    redirect_to edit_twiml_path(@verb.twiml)
+    redirect_to twiml_path(@verb.twiml)
     flash[:notice] = "Twiml Verb updated"    
-  end  
+  end
+    
   def destroy
     verb = Verb.find(params[:id])
     twiml = verb.twiml
@@ -22,4 +29,19 @@ class VerbsController < ApplicationController
     redirect_to edit_twiml_path(twiml)
     flash[:notice] = "Verb deleted"
   end
+  
+  def move_higher
+    verb = Verb.find(params[:id])
+    verb.move_higher
+    redirect_to twiml_path(verb.twiml)
+    flash[:notice] = "Verb Moved Up"    
+  end
+  
+  def move_lower
+    verb = Verb.find(params[:id])
+    verb.move_lower
+    redirect_to twiml_path(verb.twiml)
+    flash[:notice] = "Verb Moved Down"    
+  end
+    
 end

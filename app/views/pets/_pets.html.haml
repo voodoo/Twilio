@@ -1,0 +1,18 @@
+- if @pets.empty?
+  %h3 None found
+%ul{:style => 'list-style:none'}
+  - for pet in @pets
+    %li
+      - link_to pet_path(pet) do
+        = image_tag "/images/icons/#{pet.dog_or_cat.downcase}.png", :align => 'center'
+        = pet.dog_or_cat
+        ,
+        = pet.no_name
+        ,
+        = pet.sex
+        ,
+        = pet.weight
+        ,
+        = pet.color
+        
+= will_paginate(@pets)        

@@ -1,0 +1,23 @@
+%h1 Test Boards
+
+%hr
+
+%h2 Main
+%form{:method => 'POST', :action => '/board/index', :onsubmit => "return setAction(this)", :target => 'blank'}
+  = submit_tag("GO")  
+  
+%hr
+
+%h2 Search
+%form{:method => 'POST', :action => '/board/search?Digits=78746', :onsubmit => "return setAction(this)", :target => 'blank'}
+  = submit_tag("GO")
+
+%hr
+
+%h2 Notify
+%form{:method => 'POST', :action => '/board/notify?Digits=1&pets=1,2,3', :onsubmit => "return setAction(this)", :target => 'blank'}
+  = submit_tag("GO")
+  
+%h2 Notify Confirmation
+%form{:method => 'POST', :action => '/board/notify_confirmation?pet=1', :onsubmit => "return setAction(this)", :target => 'blank'}
+  = submit_tag("GO")  
