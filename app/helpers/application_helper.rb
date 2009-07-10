@@ -12,9 +12,14 @@ module ApplicationHelper
       [image_tag('/images/icons/icon.png', :style => 'width:26px', :align => 'top'), root_path],
       ['Lost', lost_pets_path],
       ['Found',found_pets_path],
-      ['Search', search_pets_path],
-      ['Submit', new_pet_path]
-      ]    
+      ['Dogs',dogs_pets_path],
+      ['Cats',cats_pets_path],
+      ['Call me!', callmes_path],
+      ['Search', search_pets_path]      
+    ]    
+  end
+  def owned? obj
+    logged_in? and obj.user == current_user 
   end 
   def twilio_path
     "#{TWILIO.api_url}/#{TWILIO.api}"

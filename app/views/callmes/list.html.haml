@@ -1,0 +1,4 @@
+- @title = 'Call me list'
+%ul
+  - for callme in @callmes
+    %li= link_to callme.phone, callme_path(callme)

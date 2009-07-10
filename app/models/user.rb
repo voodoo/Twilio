@@ -26,7 +26,9 @@ class User < ActiveRecord::Base
   def matching_password?(pass)
     self.password_hash == encrypt_password(pass)
   end
-  
+  def admin?
+    self.id == 1
+  end
   private
   
   def prepare_password

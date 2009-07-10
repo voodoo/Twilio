@@ -11,4 +11,4 @@ end
 # http://almosteffortless.com/2009/06/25/config-vars-and-heroku/
 #CONFIG = (YAML.load_file('config/config.yml')[RAILS_ENV] rescue {}).merge(ENV)
 
-TWILIO = Hashit.new((YAML.load_file(File.join(Rails.root, "config", "twilio.yml"))['development'] rescue {}).merge(ENV))
+TWILIO = Hashit.new((YAML.load_file(File.join(Rails.root, "config", "twilio.yml"))[Rails.env] rescue {}).merge(ENV))

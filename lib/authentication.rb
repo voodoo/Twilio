@@ -34,4 +34,11 @@ module Authentication
       redirect_to login_url
     end
   end
+  
+  def admin_required
+    if !logged_in? or !current_user.admin?
+      flash[:error] = "You must first log in or sign up before accessing this page."
+      redirect_to login_url      
+    end
+  end
 end

@@ -9,7 +9,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090709125912) do
+ActiveRecord::Schema.define(:version => 20090710152002) do
+
+  create_table "callmes", :force => true do |t|
+    t.string   "phone"
+    t.string   "zip"
+    t.boolean  "confirmed",  :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "callmes", ["phone"], :name => "index_callmes_on_phone"
+  add_index "callmes", ["zip"], :name => "index_callmes_on_zip"
 
   create_table "pets", :force => true do |t|
     t.integer  "user_id"

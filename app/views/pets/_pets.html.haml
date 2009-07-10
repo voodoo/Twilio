@@ -1,6 +1,6 @@
 - if @pets.empty?
   %h3 None found
-%ul{:style => 'list-style:none'}
+%ul{:style => 'list-style:none;padding-left:0'}
   - for pet in @pets
     %li
       - link_to pet_path(pet) do
@@ -11,8 +11,10 @@
         ,
         = pet.sex
         ,
-        = pet.weight
-        ,
+        = pet.weight 
+        pounds 
+        , color is 
         = pet.color
+      
         
 = will_paginate(@pets)        

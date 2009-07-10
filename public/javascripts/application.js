@@ -4,3 +4,8 @@
 function setAction(form){
 	return true
 }
+
+
+function random(i){
+   return Math.floor(Math.random() * (i+1))
+}

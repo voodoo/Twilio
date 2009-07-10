@@ -20,8 +20,9 @@
   =h @pet.description
 
 %p
-  = link_to "Edit", edit_pet_path(@pet)
-  |
-  = link_to "Destroy", @pet, :confirm => 'Are you sure?', :method => :delete
-  |
+  - if owned?(@pet)
+    = link_to "Edit", edit_pet_path(@pet)
+    |
+    = link_to "Destroy", @pet, :confirm => 'Are you sure?', :method => :delete
+    |
   = link_to "View All", pets_path

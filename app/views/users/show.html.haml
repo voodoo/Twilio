@@ -18,13 +18,15 @@
   
 .fieldset
   %label State
-  = @user.zip
+  = @user.state
  
 .fieldset
   %label Zip
   = @user.zip
 
 %p=link_to "<span>Edit Profile</span>", edit_user_path(current_user), :class => 'button'
+
+%br/
 
 - if @user.pets.empty?
   %h4 Not pets found

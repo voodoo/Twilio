@@ -10,6 +10,7 @@ require 'net/http'
 
 Rails::Initializer.run do |config|
   config.gem 'will_paginate'#, :version => '~> 2.3.8', :lib => 'will_paginate', :source => 'http://gems.github.com'
+#  config.gem 'javan-whenever', :lib => false, :source => 'http://gems.github.com'
   config.time_zone = 'UTC'
 end
 

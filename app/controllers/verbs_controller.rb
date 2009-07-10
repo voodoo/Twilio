@@ -1,5 +1,5 @@
 class VerbsController < ApplicationController
-  
+  layout 'iphone'
   def create
     verb = Verb.create(params[:verb])
     redirect_to twiml_path(verb.twiml)

@@ -1,0 +1,25 @@
+- @title = 'Call me!'
+
+If you lost a pet, the 
+%b Call me!
+feature is the easiest one to use. Here is how it works.
+
+%p
+
+Enter your phone number in the box below. You will receive a call to confirm. 
+For the next week, if a pet is found in your zip code, a call will be made to you - telling you the pet details. 
+If your pet is described, you can send a message to the person who found it. All anonymously.
+
+%p
+ 
+That is it! Good luck! Please recommend this service to anyone who has lost a pet. They'll love you for it!
+
+%fieldset
+  %legend
+    Call me!
+    - fieldset_form_for @callme do |f|
+      = f.error_messages
+      = f.text_field :phone
+      = f.text_field :zip
+      = f.submit "Call me!"
+

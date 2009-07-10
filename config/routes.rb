@@ -3,6 +3,9 @@ ActionController::Routing::Routes.draw do |map|
   map.logout 'logout', :controller => 'sessions', :action => 'destroy'
   map.login 'login', :controller => 'sessions', :action => 'new'
   
+  map.resources :callmes, 
+                :collection => {:thanks => :get, :list => :get}, 
+                :member => {:confirm => :post, :callme => :post, :pet_found => :post}
   map.resources :sessions
   map.resources :users, :has_many => :pets
   map.resources :pets, :collection => {:lost => :get, :found => :get, :search => :get, :cats => :get, :dogs => :get}
@@ -16,7 +19,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :twimls, :member => {:move_higher => :put, :move_lower => :put}
   map.resources :verbs,  :member => {:move_higher => :put, :move_lower => :put}
   
-  map.root :controller => "pets" 
+  map.root :controller => "home" 
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
 

@@ -1,0 +1,9 @@
+- title 'Show Call me'
+
+%ul
+  %li
+    %b= @callme.phone
+  %li= @callme.zip
+  %li== Confirmed? #{@callme.confirmed?}
+  %li= @callme.created_at
+  

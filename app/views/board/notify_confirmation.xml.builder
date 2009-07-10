@@ -1,5 +1,5 @@
 xml.instruct!  
 xml.Response do
-  xml.Say "Thank you, here is the recording sent"
+  xml.Say "Thank you, your recording has been sent"
   xml.Redirect "/board"
 end

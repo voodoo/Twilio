@@ -1,12 +1,19 @@
-development:
-  email: EMAIL
-  email_user: USER
+basics: &basics
+  email: lost_and_found@petvetrecs.com
+  email_user: admin@petvetrecs.com
   email_smtp: smtp.gmail.com
-  email_password: PASSWORD
+  email_password: PWD
   api: 2008-08-01
   api_url: https://api.twilio.com
   sid: SID
   token: TOKEN
-  phone: PHONE
+  phone: 210 287 3468
   sandbox_phone: (866) 583-6913
   sandbox_pin: PIN
+production: 
+  <<: *basics
+  app_url: http://laf.heroku.com  
+development:
+  <<: *basics
+  app_url_test: http://66.68.99.172:3000 
+

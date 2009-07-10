@@ -1,9 +1,6 @@
 %form{:method => 'post', :action => '/home/settings', :id => 'settings', :title => 'Settings', :selected => "true", :class => 'panel'}
   %fieldset
     .row
-      %label Home Url
-      %input{:type => 'text', :name => "twilio[home_url]", :value => TWILIO.home_url}
-    .row
       %label API
       %input{:type => 'text', :name => "twilio[api]", :value => TWILIO.api}
     .row
