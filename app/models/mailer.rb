@@ -32,4 +32,13 @@ class Mailer < ActionMailer::Base
       body[:url]   = url
       body[:params]= params
     end
+    
+    def ping subject, message
+       recipients   TWILIO.email_user
+       from         TWILIO.email_user
+       subject      subject
+       sent_on      Time.now
+       content_type = "text/plain"
+       body[:message]  = message
+     end    
 end

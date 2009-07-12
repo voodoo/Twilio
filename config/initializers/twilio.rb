@@ -24,6 +24,6 @@ ActionMailer::Base.smtp_settings = {
   }
   
 # Wanted to put this in envs/production.rb!!!!!!!!!!!!!!!!!!!!!!!
-# ExceptionNotifier.exception_recipients = %w(paul.vudmaska@gmail.com)
-# ExceptionNotifier.sender_address =  "'LaF Error' <#{TWILIO.email_user}>"
+ExceptionNotifier.exception_recipients = %w(paul.vudmaska@gmail.com)
+#ExceptionNotifier.sender_address =  "'LaF Error' <#{TWILIO.email_user}>"
 

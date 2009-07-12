@@ -8,6 +8,7 @@ class CallmesController < ApplicationController
   def create
     @callme = Callme.new(params[:callme])
     if @callme.save
+      Mailer.deliver_ping('Call me', params.inspect)
       make_call
       flash[:notice]  = "Calling #{@callme.phone.to_phone} now ... please verify ..."
       redirect_to :action => 'thanks'

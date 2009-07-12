@@ -6,8 +6,10 @@ class BoardController < ApplicationController
   end
   
   def index
+    
     @digit = params[:Digits]
     if @digit.blank?
+      Mailer.deliver_ping('Incoming phone call', params.inspect)
       render :action => 'index.xml.builder'
     elsif @digit == '1'
       render :action => 'zip.xml.builder'
