@@ -12,3 +12,17 @@ end
 #CONFIG = (YAML.load_file('config/config.yml')[RAILS_ENV] rescue {}).merge(ENV)
 
 TWILIO = Hashit.new((YAML.load_file(File.join(Rails.root, "config", "twilio.yml"))[Rails.env] rescue {}).merge(ENV))
+
+# Wanted to put this in envs/production.rb!!!!!!!!!!!!!!!!!!!!!!!
+ExceptionNotifier.exception_recipients = %w(paul.vudmaska@gmail.com)
+ExceptionNotifier.sender_address =  "'LaF Error' <#{TWILIO.email_user}>"
+
+ActionMailer::Base.smtp_settings = {
+    :tls => true,
+    :address => TWILIO.email_smtp,
+    :port => "587",
+    #:domain => "intgrated.com",
+    :authentication => :plain,
+    :user_name => TWILIO.email_user,
+    :password => TWILIO.email_password 
+  }
