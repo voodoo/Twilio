@@ -1,5 +1,7 @@
 - title "Search"
 %ul{:id => @title, :title => @title, :selected => "true"}
+  - if @pets
+    = render :partial => 'pets'
   %li
     - form_for :search, :url => '/iphone/search' do |f|
       = f.label :sex
@@ -12,5 +14,3 @@
       = f.text_field :zip, :size => 5
       %br/
       = f.submit "Start Search"
-  - if @pets
-    = render :partial => 'pets'

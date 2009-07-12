@@ -1,3 +1,5 @@
+- if @pets.empty?
+  %li None found
 - for pet in @pets
   %li
     - link_to "/iphone/pet/#{pet.id}", :class => pet.lost_or_found do
