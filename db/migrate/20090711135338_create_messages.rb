@@ -19,6 +19,6 @@ class CreateMessages < ActiveRecord::Migration
 
   def self.down
     drop_table :messages
-    drop_talbe :phone_messages
+    drop_table :phone_messages
   end
 end
