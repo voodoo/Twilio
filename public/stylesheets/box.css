@@ -1,7 +1,7 @@
 .box {
   padding: 12px;
-  margin-top: 12px;
-  margin-bottom: 12px;
+  margin: 12px;
+  margin-top: 0;
   border: 1px solid #666;
   background: #eee; }
 

@@ -4,7 +4,7 @@ body {
   background: #e2e6e9;
   font: normal 12px Verdana, Arial, Sans-Serif;
   text-align: left;
-  border-top: 4px solid #333; }
+  border-top: 4px solid darkgreen; }
 
 a:link, a:visited {
   color: #273A4D;
@@ -25,13 +25,19 @@ a:active {
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
-  margin: 10px 0;
+  margin: 10px;
   padding: 0;
   line-height: 1em; }
 
+.Lost {
+  color: #990000; }
+
+.Found {
+  color: darkgreen; }
+
 h1 {
   font-size: 36px;
-  color: #293138; }
+  color: #990000; }
 
 h2 {
   font-size: 28px;
@@ -101,9 +107,10 @@ p em, cite {
 #navigation {
   float: left;
   width: 800px;
-  background-color: #282d2d;
+  background-color: darkgreen;
   text-transform: uppercase;
-  font-size: 14px; }
+  font-size: 14px;
+  border-bottom: 1px solid black; }
 
 #wrapper {
   margin: 0;
@@ -116,6 +123,8 @@ p em, cite {
   border-right: solid #dde0e1 2px;
   border-bottom: solid #dde0e1 2px; }
 
+#content-wrapper {
+  padding-top: 12px; }
 
 #content {
   margin-top: 12px;
@@ -134,7 +143,8 @@ p em, cite {
   color: #555555;
   text-align: center;
   padding: 10px 0;
-  background: #cfcfcf; }
+  background: #cfcfcf;
+  border-bottom: 4px solid darkgreen; }
 
 #navigation ul {
   margin: 0 5px;
@@ -155,7 +165,7 @@ p em, cite {
   padding: 5px 10px; }
 #navigation ul li.current_page_item a:link, #navigation ul li.current_page_item a:visited, #navigation ul li.current_page_item a:hover, #navigation ul li.current_page_item a:active {
   color: #ffffff;
-  background-color: #414646;
+  background-color: #990000;
   border-left: solid #6b7070 1px;
   border-right: solid #6b7070 1px; }
 #navigation ul li.search {
@@ -170,6 +180,10 @@ ul li.Dog {
 
 ul li.Cat {
   list-style-image: url(/images/icons/cat.png); }
+
+fieldset legend {
+  font-size: 2em;
+  color: darkgreen; }
 
 #header h1 {
   color: #191a1a;

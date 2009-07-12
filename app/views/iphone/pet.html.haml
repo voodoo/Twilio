@@ -1,0 +1,32 @@
+- title "Pet"
+%ul{:id => 'pet', :title => @title, :selected => "true"}
+  %li{:class => @pet.lost_or_found}
+    = image_tag "/images/icons/#{@pet.dog_or_cat.downcase}.png", :align => 'center'
+    = @pet.no_name  
+    .sub
+      = @pet.dog_or_cat
+      = @pet.lost_or_found
+    .sub
+      %em Sex:
+      = @pet.sex
+    .sub
+      %em Breed:
+      = @pet.breed
+    .sub
+      %em Color:
+      = @pet.color      
+    .sub
+      %em Weight:
+      = @pet.weight         
+    .sub
+      %em Description:
+      = @pet.description     
+  - if iphone?
+    %li
+      - link_to "tel:#{TWILIO.toll_free}" do
+        = TWILIO.toll_free
+        .sub Call the number above to leave a message
+  - else
+    %li= link_to TWILIO.toll_free, pet_path(@pet)
+        
+   

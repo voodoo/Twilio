@@ -10,7 +10,7 @@
   = f.label "Lost or Found"
   = f.select :lost_or_found, [['Lost', 'Lost'], ['Found','Found']]
   = f.label "Zip"
-  = f.text_field :zip
+  = f.text_field :zip, :size => 5
   %br/
   = f.submit "Start Search"
   

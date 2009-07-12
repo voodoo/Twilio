@@ -2,19 +2,30 @@ class BoardController < ApplicationController
   layout nil
   def index
     @digit = params[:Digits]
-    if @digit.nil?
+    if @digit.blank?
       render :action => 'index.xml.builder'
-    elsif [1,2].include?(@digit.to_i)
-      # if lost, search for found otherwise look for lost
+    elsif @digit == '1'
       render :action => 'zip.xml.builder'
-    elsif @digit == '3'
-      render :action => 'create.xml.builder'
+    elsif @digit == '2'
+      @pets = Pet.find(:all, :limit => 5, :order => 'updated_at desc')
+      render :action => 'recent.xml.builder'
+    else
+      render :action => 'message.xml.builder'
     end
+  end
+
+  def message
+    @recordingUrl          = params[:RecordingUrl]  
+    
+    if @recordingUrl
+      Mailer.deliver_phone_message(User.first, @recordingUrl, params)   
+    end 
+    render :action => 'message.xml.builder'
   end
   
   def search
     @zip        = params[:Digits]
-    @zip_spaced = @zip.scan(/\d/).map{|d| d}.join(' ')
+    @zip_spaced = @zip.spaced
     @pets       = Pet.find(:all, :conditions => ['users.zip = ?', @zip], :include => :user)
     render :action => 'search.xml.builder'
   end
@@ -28,9 +39,9 @@ class BoardController < ApplicationController
   end
   
   def notify_confirmation
-    @url          = params[:RecordingUrl]
+    @recordingUrl          = params[:RecordingUrl]
     @pet          = Pet.find(params[:pet])
-    Mailer.deliver_notification(@pet, @url)
+    Mailer.deliver_notification(@pet, @recordingUrl, params)
     render :action => 'notify_confirmation.xml.builder'   
   end
 

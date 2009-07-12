@@ -1,7 +1,9 @@
 class User < ActiveRecord::Base
   has_many :pets
+  has_many :messages
+  has_many :phone_messages
   # new columns need to be added here to be writable through mass assignment
-  attr_accessible :username, :email, :state, :zip, :city, :phone, :password, :password_confirmation
+  attr_accessible :username, :email, :state, :zip, :city, :phone, :phone_pin, :password, :password_confirmation
   
   attr_accessor :password
   before_save :prepare_password

@@ -8,7 +8,7 @@ class CallmesController < ApplicationController
     @callme = Callme.new(params[:callme])
     if @callme.save
       make_call
-      flash[:notice]  = "Calling #{@callme.phone} now ... please verify ..."
+      flash[:notice]  = "Calling #{@callme.phone.to_phone} now ... please verify ..."
       redirect_to :action => 'thanks'
     else
       render :action => 'index'
@@ -34,7 +34,7 @@ class CallmesController < ApplicationController
   
   def callme
     @callme = Callme.find(params[:id])
-    @pets   = Pet.find(parmams[:pets].split(','))
+    @pets   = Pet.find(params[:pets].split(','))
     render :action => 'callme.xml.builder', :layout => false    
   end
   
@@ -59,7 +59,7 @@ class CallmesController < ApplicationController
   def make_call
     twilio_connect
     #if Rails.env == 'production'
-      puts Twilio::Call.make(TWILIO.phone, @callme.phone, confirm_callme_url(@callme)).inspect
+      puts Twilio::Call.make(TWILIO.phone, @callme.phone, "#{TWILIO.app_url}/callmes/#{@callme.id}/confirm").inspect
     #else
     #  Twilio::Call.make(TWILIO.phone, @callme.phone, "#{TWILIO.app_url}#{confirm_callme_path(@callme)}").inspect
     #end

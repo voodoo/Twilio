@@ -8,7 +8,20 @@ ActionController::Routing::Routes.draw do |map|
                 :member => {:confirm => :post, :callme => :post, :pet_found => :post}
   map.resources :sessions
   map.resources :users, :has_many => :pets
-  map.resources :pets, :collection => {:lost => :get, :found => :get, :search => :get, :cats => :get, :dogs => :get}
+  map.resources :pets, 
+                  :member => {
+                    :message => :get,
+                    :leave_message => :post
+                  },
+                  :collection => 
+                    {
+                      :lost => :get, 
+                      :found => :get, 
+                      :search => :get, 
+                      :cats => :get, 
+                      :dogs => :get
+
+                      }
 
 
   # Couldn't find a better way to do this but this works

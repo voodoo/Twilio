@@ -1,41 +1,41 @@
 - @title = 'Profile'
 
-.fieldset
-  %label Username
-  = @user.username
+%table{:width => '100%'}
+  %tr
+    %td{:width => '50%', :valign => 'top'}
+      .fieldset
+        %label Username
+        = @user.username
 
-.fieldset
-  %label Email
-  = @user.email  
+      .fieldset
+        %label Email
+        = @user.email  
 
-.fieldset
-  %label Phone
-  = @user.phone
+      .fieldset
+        %label Phone
+        = @user.phone
 
-.fieldset
-  %label City
-  = @user.city
+      .fieldset
+        %label City
+        = @user.city
   
-.fieldset
-  %label State
-  = @user.state
+      .fieldset
+        %label State
+        = @user.state
  
-.fieldset
-  %label Zip
-  = @user.zip
+      .fieldset
+        %label Zip
+        = @user.zip
 
-%p=link_to "<span>Edit Profile</span>", edit_user_path(current_user), :class => 'button'
-
-%br/
-
-- if @user.pets.empty?
-  %h4 Not pets found
-- else
-  %h1 Pets  
-  %ul
-  - for pet in @user.pets
-    %li= link_to pet.no_name, edit_pet_path(pet)
+      %p=link_to "<span>Edit Profile</span>", edit_user_path(current_user), :class => 'button'
+    %td{:width => '50%', :valign => 'top'}   
+      - if @user.pets.empty?
+        %h4 Not pets found
+      - else
+        %h1 Pets  
+        %ul
+        - for pet in @user.pets
+          %li= link_to pet.no_name, edit_pet_path(pet)
     
-= link_to "<span>New Pet</span>", new_pet_path, :class => 'button'
-
+      %p= link_to "<span>New Pet</span>", new_pet_path, :class => 'button'
     

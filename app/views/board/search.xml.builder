@@ -5,29 +5,9 @@ xml.Response do
     if @pets.empty?
       xml.Say "No pets found"
     else
-      xml.Say "#{@pets.size} pets were found"
-      @pets.each_with_index do |pet,i|
-        xml.Say "A #{pet.sex} #{pet.dog_or_cat} was found with the following characteristics"
-        
-        unless pet.name.blank?
-          xml.Say "Name is #{pet.name}"
-        end
-                
-        unless pet.weight.blank?
-          xml.Say "Weight #{pet.weight} pounds"
-        end        
-
-        unless pet.color.blank?
-          xml.Say "Color is #{pet.color}"
-        end   
-             
-        unless pet.description.blank?
-          xml.Say "A short description of the pet follows"
-          xml.Say pet.description
-        end  
-              
-        xml.Say "Press #{i + 1} to notify the owner"
-      end
+      xml << render(:partial => 'board/pets.xml.builder')
     end
   end
+  xml.Say 'Search results complete'
+  xml.Redirect '/board'
 end

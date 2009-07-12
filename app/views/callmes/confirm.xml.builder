@@ -5,7 +5,7 @@ xml.Response do
     xml.Redirect '/board'
   else
     xml.Gather do
-      xml.Say "Just calling to confirm your Call me request"
+      xml.Say "Lost &amp; Found Dogs and Cats calling to confirm your call me request"
       xml.Say "Press 1 to confirm"
     end
   end

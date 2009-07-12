@@ -1,9 +1,9 @@
-%h1 Test Boards
+%h1 Test Twilio Boards
 
 %hr
 
 %h2 Main
-%form{:method => 'POST', :action => '/board/index', :onsubmit => "return setAction(this)", :target => 'blank'}
+%form{:method => 'POST', :action => '/board?Digits=', :onsubmit => "return setAction(this)", :target => 'blank'}
   = submit_tag("GO")  
   
 %hr
@@ -21,3 +21,10 @@
 %h2 Notify Confirmation
 %form{:method => 'POST', :action => '/board/notify_confirmation?pet=1', :onsubmit => "return setAction(this)", :target => 'blank'}
   = submit_tag("GO")  
+  
+%hr
+
+%h2 Callmes callme
+%form{:method => 'POST', :action => '/callmes/1/callme/', :onsubmit => "return setAction(this)", :target => 'blank'}
+  = submit_tag("GO")  
+

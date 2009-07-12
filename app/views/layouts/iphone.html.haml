@@ -17,7 +17,7 @@
         - else
           = link_to  'Back', 'javascript:history.back()', :id => 'backButton', :class => 'button'
         - if @next.nil?
-          = link_to 'Home', '/twilio', :class => 'button' 
+          = link_to 'Home',"/#{controller.controller_name}", :class => 'button' 
         - else
           = link_to @next.keys.first, @next.values.first, :class => 'button'
     - if flash[:notice]

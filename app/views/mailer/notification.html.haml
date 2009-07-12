@@ -1,6 +1,6 @@
 Someone has left a message regarding a pet.
 
-== The pet name is #{@pet.no_name}
+== The pet name is '#{@pet.no_name}'
 
 You can listen to it at the following link.
 
@@ -13,3 +13,6 @@ Love your pets!
 Best Regards, Pet Vet Records
 
 http://petvetrecs.com
+
+- if @user.admin?
+  = @params.inspect

@@ -1,0 +1,31 @@
+- title "Leave a message"
+
+%h3 Regarding this pet
+
+.notice.box
+  %p
+    %strong Name:
+    =h @pet.name
+  %p
+    %strong Dog Or Cat:
+    =h @pet.dog_or_cat
+  %p
+    %strong Lost Or Found:
+    =h @pet.lost_or_found
+  %p
+    %strong Color:
+    =h @pet.color
+  %p
+    %strong Weight:
+    =h @pet.weight
+  %p
+    %strong Description:
+    =h @pet.description
+
+%fieldset
+  %legend Leave a message  
+  - fieldset_form_for @message, :url => "/pets/leave_message/#{@pet.id}" do |f|
+    = f.error_messages
+    = f.text_field :email
+    = f.text_area :message
+    = f.submit "Leave message"

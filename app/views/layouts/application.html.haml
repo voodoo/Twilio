@@ -5,15 +5,15 @@
     %meta{ :name => "description", :content => "lost and found dogs and cats" }
     %meta{ :name => "keywords", :content => "lost, found,  lost animals, dogs,  cats" }
     = stylesheet_link_tag 'app','scaffold', 'fieldset_forms', 'box', 'button'
-    = javascript_include_tag :defaults
+    = javascript_include_tag :defaults, 'jquery.mask'
     %title
       Lost &amp; Found Dogs &amp; Cats
   %body  
     #container
       #header
         %h1       
-          = link_to "LOST &amp; FOUND", '/', :style => 'color:#666;'
-          %small{:style => 'float:right;color:#000'}
+          = link_to "<span style='color:#990000'>LOST</span> <span style='color:#999'>&amp;</span> <span style='color:darkgreen'>FOUND</span>", '/', :style => 'text-decoration:none'
+          %small{:style => 'float:right;color:#999'}
             (866) 663-1428      
       #wrapper
         #navigation
@@ -25,9 +25,14 @@
             = flash_messages(:fade => 5)
             = yield
         #footer
+          .warn.box
+            Feel free to put in bogus data. We are just testing and the data will be deleted anyway once 
+            we move into Alpha or Beta or Zeta or something :)
           By
           %a{ :href => "http://Integrated-Internet.com" }
             Integrated Internet
           and
           %a{ :href => "http://PetVetRecs.com" }
             Pet Vet Records
+          \:
+          = link_to "About", '/home/about'

@@ -14,6 +14,12 @@ body > ul > li > a.add {
 
 }
 
+.Lost{
+	color:#990000;
+}
+.Found{
+	color:darkgreen;
+}
 #flash_notice{
 	padding:6px;
 	color:white;

@@ -1,19 +1,20 @@
 .div{:style => 'float:right;width:150px', :class => 'box'}
   %b Lost a cat or dog? 
-  %em We have. We hope we can help you find it using this tool!
-  %p
-  The easiest thing to do is use our
-  = link_to 'Call me!', callmes_path
+  Use our
+  = link_to 'Call me!', callmes_path, :style => 'color:#990000;font-weight:bold'
   feature.
   %p
   = link_to 'Or search for your pet', search_pets_path
-  in your zip code now - or, even easier, call the toll-free number above.
+  in your zip code now.
   %p
   Found a pet? 
   = link_to 'Sign up', signup_path
   and describe the animal, making it available for search over the web and over the phone.
   %p
   The owner of the pet will be grateful, we assure you :)
+
+%h3 Most recently updated pets
+
 = render :partial => 'pets/pets'
 
 %script{:src => '/javascripts/paws.js'}

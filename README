@@ -16,8 +16,7 @@ In addition to the lost and found front end there is a little iPhone app that
 1) Allows you to create simple TWIML boards (phone switchboards)
   a) I made some constraints/conventions to keep it simple - for example boards only post back to itself (with one digit)
   b) Verbs have actions (like Gather does)
-  c) This idea is, you ask a question ('Press 1 for this') with a Say verb, for example, and when that digit is posted the 
-     action attached to the Verb is called (Dial, Redirect to another board etc)
+  c) This idea is, you ask a question ('Press 1 for this') with a Say verb, for example, and when that digit is posted the action attached to the Verb is called (Dial, Redirect to another board etc)
 2) See/listen to your Twilio resources
 3) Once you fire up the app, log in as admin with password 1111, go to /twilio on an iPhone (or safari or chrome, webkit etc) 
    Firefox is good however (because of its xml viewing capability) to test the boards. See /board/test.
@@ -37,7 +36,7 @@ Kind of a virtual PBX for web developers.
 
 http://heroku.com
 
-Ruby on Rails hosting nirvana! Having used Rails since ... the beginning, I can tell you the hosting 
+Ruby on Rails hosting nirvana. Having used Rails since ... the beginning, I can tell you the hosting 
 has been a bear. Heroku makes it so easy. Real easy. Amazingly easy.
 
 == Getting started
@@ -52,7 +51,7 @@ has been a bear. Heroku makes it so easy. Real easy. Amazingly easy.
 When you get ready to move to production/public - get a heroku account. Before you move run 
 * rake heroku:config
 
-this pushes the yaml stuff into Heroku environment variables - so you don't have to keep your Twilio authentication 
+^ this pushes the yaml stuff into Heroku environment variables - so you don't have to keep your Twilio authentication 
 stuff dangling around
 
 == Fire it up
@@ -77,7 +76,7 @@ Some software I used/stole
   a nice gem/plugin for programatically generating xml with Twilio classes
 * Haml/Sass
 * Will Paginate
-* iUi(iPhone)
+* iUi(iPhone) - the css at least - probably move to something else that likes forms better
 * Probably others :)
 
 

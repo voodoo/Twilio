@@ -9,9 +9,13 @@ a.button {
   float: left;
   font: normal 12px arial, sans-serif;
   height: 24px;
+  margin: 12px;
   margin-right: 6px;
   padding-right: 18px;
   text-decoration: none; }
+
+a.button:hover {
+  color: darkgreen; }
 
 a.button span {
   background: transparent url(/images/btn/bg_button_span.gif) no-repeat;

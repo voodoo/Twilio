@@ -32,7 +32,26 @@ class PetsController < ApplicationController
   def show
     @pet = Pet.find(params[:id])
   end
-    
+ 
+  def message
+    @pet = Pet.find(params[:id])
+    @message = @pet.user.messages.new
+  end
+  
+  def leave_message
+    @pet     = Pet.find(params[:id])
+    @user    = @pet.user
+    @message = @user.messages.new(params[:message])
+    if @message.save
+      Mailer.deliver_message(@message)
+      flash[:notice] = "Message sent"
+      redirect_to pet_path(@pet)
+    else
+      flash.now[:warn] = "Message is required"
+      render :action => 'message'
+    end
+  end
+  
   def new
     @title = 'New Pet'
     @pet = Pet.new(:lost_or_found => 'Lost', :dog_or_cat => 'Dog')
@@ -71,14 +90,7 @@ class PetsController < ApplicationController
   
   def search
     if request.post?
-      @zip = params[:search][:zip]
-      @pets = Pet.find(:all, 
-      :conditions => Condition.block { |c| 
-        c.and :sex, params[:search][:sex]
-        c.and :dog_or_cat, params[:search][:dog_or_cat]
-        c.and :lost_or_found, params[:search][:lost_or_found]
-        c.and :zip, @zip unless @zip.blank?
-      }).paginate(:page => params[:page])
+      @pets = Pet.search params[:search], params[:page]
     end
   end
 end

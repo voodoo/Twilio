@@ -3,7 +3,7 @@
 
 class ApplicationController < ActionController::Base
   include Authentication
-
+  include ExceptionNotifiable
   protected
   def twilio_connect    
     Twilio.connect(TWILIO.sid, TWILIO.token)

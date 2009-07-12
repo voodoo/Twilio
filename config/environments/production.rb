@@ -10,6 +10,19 @@ config.action_controller.perform_caching             = true
 config.action_view.cache_template_loading            = true
 
 
+ExceptionNotifier.exception_recipients = %w(paul.vudmaska@gmail.com)
+ExceptionNotifier.sender_address =  "'LaF Error' <#{TWILIO.email_user}>"
+
+ActionMailer::Base.smtp_settings = {
+    :tls => true,
+    :address => TWILIO.email_smtp,
+    :port => "587",
+    #:domain => "intgrated.com",
+    :authentication => :plain,
+    :user_name => TWILIO.email_user,
+    :password => TWILIO.email_password 
+  }
+  
 # See everything in the log (default is :info)
 # config.log_level = :debug
 

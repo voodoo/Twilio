@@ -1,10 +1,11 @@
 - if @pets.empty?
   %h3 None found
-%ul{:style => 'list-style:none;padding-left:0'}
+%ul{:style => 'list-style:none;padding-left:10px'}
   - for pet in @pets
     %li
+      = image_tag "/images/icons/#{pet.dog_or_cat.downcase}.png", :align => 'center'
+      &nbsp;&nbsp;
       - link_to pet_path(pet) do
-        = image_tag "/images/icons/#{pet.dog_or_cat.downcase}.png", :align => 'center'
         = pet.dog_or_cat
         ,
         = pet.no_name
@@ -15,6 +16,9 @@
         pounds 
         , color is 
         = pet.color
+      %br/
+      %b== <span class='#{pet.lost_or_found}'>#{pet.lost_or_found}</span> in #{pet.user.city}, #{pet.user.state} #{pet.user.zip}
+              
       
         
 = will_paginate(@pets)        

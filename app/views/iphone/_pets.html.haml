@@ -1,0 +1,11 @@
+- for pet in @pets
+  %li
+    - link_to "/iphone/pet/#{pet.id}", :class => pet.lost_or_found do
+      = image_tag "/images/icons/#{pet.dog_or_cat.downcase}.png", :align => 'center'    
+      = pet.no_name
+      .sub
+        = pet.user.city
+        ,
+        = pet.user.state
+        
+        = pet.user.zip

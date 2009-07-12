@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090710152002) do
+ActiveRecord::Schema.define(:version => 20090711135338) do
 
   create_table "callmes", :force => true do |t|
     t.string   "phone"
@@ -22,15 +22,33 @@ ActiveRecord::Schema.define(:version => 20090710152002) do
   add_index "callmes", ["phone"], :name => "index_callmes_on_phone"
   add_index "callmes", ["zip"], :name => "index_callmes_on_zip"
 
+  create_table "messages", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "email"
+    t.text     "message"
+    t.string   "ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "pets", :force => true do |t|
     t.integer  "user_id"
     t.string   "name"
     t.string   "dog_or_cat",    :default => "Dog"
     t.string   "lost_or_found", :default => "Lost"
     t.string   "sex",           :default => "Male"
+    t.string   "breed"
     t.string   "color"
     t.string   "weight"
     t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "phone_messages", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "url"
+    t.string   "phone"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

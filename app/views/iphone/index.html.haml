@@ -1,0 +1,11 @@
+- title "Lost&amp;Found"
+- @back = false
+%ul{:id => 'home', :title => @title, :selected => "true"}
+  %li= link_to "#{image_tag '/images/icons/dog.png', :align => 'center'}  Dogs", '/iphone/dogs' 
+  %li= link_to "#{image_tag '/images/icons/cat.png', :align => 'center'}  Cats", '/iphone/cats'
+  %li= link_to "Lost", '/iphone/lost', :style => 'color:#990000'
+  %li= link_to "Found", '/iphone/found', :style => 'color:darkgreen'
+  %li= link_to "Search", '/iphone/search' 
+  %li= link_to "About", "/iphone/about"
+  - if iphone?
+    %li= link_to "1(866) 663 1428", "tel:18666631428"

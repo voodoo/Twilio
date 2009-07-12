@@ -4,7 +4,7 @@ body
   background: #e2e6e9
   font: normal 12px Verdana, Arial, Sans-Serif
   text-align: left
-  border-top: 4px solid #333
+  border-top: 4px solid darkgreen
 
 
 a
@@ -32,14 +32,19 @@ a:active
 
 h1, h2, h3, h4, h5, h6
   font-weight: normal
-  margin: 10px 0
+  margin: 10px
   padding: 0
   line-height: 1em
 
+.Lost
+  color: #990000
+
+.Found
+  color: darkgreen
 
 h1
   font-size: 36px
-  color: #293138
+  color: #990000
 
 
 h2
@@ -124,9 +129,10 @@ p em, cite
 #navigation
   float: left
   width: 800px
-  background-color: #282d2d
+  background-color: darkgreen
   text-transform: uppercase
   font-size: 14px
+  border-bottom: 1px solid black
 
 
 #wrapper
@@ -142,6 +148,7 @@ p em, cite
 
 
 #content-wrapper
+  padding-top: 12px
 
 
 
@@ -165,7 +172,7 @@ p em, cite
   text-align: center
   padding: 10px 0
   background: #cfcfcf
-
+  border-bottom: 4px solid darkgreen
 
 #navigation
   ul
@@ -193,7 +200,7 @@ p em, cite
     &.current_page_item a
       &:link, &:visited, &:hover, &:active
         color: #ffffff
-        background-color: #414646
+        background-color: #990000
         border-left: solid #6b7070 1px
         border-right: solid #6b7070 1px
 
@@ -212,6 +219,9 @@ ul
   li.Cat
     list-style-image: url(/images/icons/cat.png)
 
+fieldset legend
+  font-size: 2em
+  color: darkgreen
 
 #header h1
   color: #191a1a

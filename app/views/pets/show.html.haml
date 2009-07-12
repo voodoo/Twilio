@@ -1,5 +1,8 @@
 - title "Pet"
 
+- if !owned?(@pet)
+  %b== <span class='#{@pet.lost_or_found}'>#{@pet.lost_or_found}</span> in #{@pet.user.city}, #{@pet.user.state} #{@pet.user.zip}
+
 %p
   %strong Name:
   =h @pet.name
@@ -23,6 +26,7 @@
   - if owned?(@pet)
     = link_to "Edit", edit_pet_path(@pet)
     |
-    = link_to "Destroy", @pet, :confirm => 'Are you sure?', :method => :delete
-    |
-  = link_to "View All", pets_path
+    = link_to "Destroy", [@pet.user,@pet], :confirm => 'Are you sure?', :method => :delete
+    
+- if !owned?(@pet)
+  %h3= link_to "<span>Leave a message for the #{@pet.lost_or_found == 'Lost' ? 'Owner' : 'Finder'}</span>", message_pet_path(@pet), :class => 'button'

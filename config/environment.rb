@@ -15,14 +15,3 @@ Rails::Initializer.run do |config|
 end
 
 
-
-
-ActionMailer::Base.smtp_settings = {
-    :tls => true,
-    :address => TWILIO.email_smtp,
-    :port => "587",
-    #:domain => "intgrated.com",
-    :authentication => :plain,
-    :user_name => TWILIO.email_user,
-    :password => TWILIO.email_password 
-  }

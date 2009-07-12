@@ -6,6 +6,7 @@ class CreatePets < ActiveRecord::Migration
       t.string :dog_or_cat,    :default => 'Dog'
       t.string :lost_or_found, :default => 'Lost'
       t.string :sex, :default => 'Male'
+      t.string :breed
       t.string :color
       t.string :weight
       t.string :description
