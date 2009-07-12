@@ -7,6 +7,7 @@ RAILS_GEM_VERSION = '2.3.2' unless defined? RAILS_GEM_VERSION
 require File.join(File.dirname(__FILE__), 'boot')
 
 require 'net/http'
+require 'digest/sha1' # just in case - no native mysql gem?
 
 Rails::Initializer.run do |config|
   config.gem 'will_paginate'#, :version => '~> 2.3.8', :lib => 'will_paginate', :source => 'http://gems.github.com'

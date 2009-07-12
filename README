@@ -70,6 +70,16 @@ http://my_public_ip:3000/board
 
 == More
 
+Plugins / gems / problems ? 
+
+I did not put this in config because of conflicts with heroku gems but you might need to 
+
+sudo gem install -v=2.3.2 rails
+sudo gem install httparty
+sudo gem install will_paginate
+sudo gem install haml
+
+
 Some software I used/stole
 
 * http://github.com/webficient/twilio/tree/master
