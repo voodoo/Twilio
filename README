@@ -1,4 +1,4 @@
-== Welcome to lost and found pets and dogs
+== Welcome to lost and found dogs and cats
 
 This is a little Ruby on Rails app I wrote for the Twilio / Heroku contest. 
 
@@ -80,7 +80,7 @@ sudo gem install will_paginate
 sudo gem install haml
 
 
-Some software I used/stole
+Some other software I used/stole
 
 * http://github.com/webficient/twilio/tree/master
   a nice gem/plugin for programatically generating xml with Twilio classes
