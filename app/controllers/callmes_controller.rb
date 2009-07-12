@@ -1,5 +1,6 @@
 class CallmesController < ApplicationController
   before_filter :admin_required, :only => [:list, :show]
+
   def index
     @callme = Callme.new
   end
@@ -30,19 +31,25 @@ class CallmesController < ApplicationController
       callme.update_attributes(:confirmed => true)
     end
     render :action => 'confirm.xml.builder', :layout => false
+    rescue
+       render :action => 'board/error.xml.builder', :layout => false
   end
   
   def callme
     @callme = Callme.find(params[:id])
     @pets   = Pet.find(params[:pets].split(','))
     render :action => 'callme.xml.builder', :layout => false    
+    rescue
+      render :action => 'board/error.xml.builder', :layout => false    
   end
   
   def pet_found
     @callme = Callme.find(params[:id])
     @pets   = params[:pets].split(',')
     @pet_id    = @pets[params[:Digits].to_i + 1]
-    render :action => 'pet_found.xml.builder', :layout => false    
+    render :action => 'pet_found.xml.builder', :layout => false  
+    rescue
+       render :action => 'board/error.xml.builder', :layout => false  
   end
     
   def pet_found_confirmed
@@ -53,6 +60,8 @@ class CallmesController < ApplicationController
     Mailer.deliver_pet_found(@pet, @url)
     
     render :action => 'pet_found_confirmed.xml.builder', :layout => false    
+    rescue
+       render :action => 'board/error.xml.builder', :layout => false
   end  
   
   protected

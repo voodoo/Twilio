@@ -1,5 +1,10 @@
 class BoardController < ApplicationController
   layout nil
+  
+  def rescue_action_in_public
+    render :action => 'board/error.xml.builder'
+  end
+  
   def index
     @digit = params[:Digits]
     if @digit.blank?
