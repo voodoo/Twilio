@@ -12,3 +12,8 @@
     = f.submit "Sign up"
   - else
     = f.submit "Update Profile"
+    
+    
+%script
+  $("#user_phone").mask("(999) 999-9999"); 
+  $("#user_zip").mask("99999");    
