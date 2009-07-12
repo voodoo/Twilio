@@ -6,7 +6,7 @@ http://twilio.heroku.com/
 http://blog.heroku.com/archives/2009/7/6/twilio_developer_contest/
 
 It is a lost and found for dogs and cats app. It has a web front end and a way to call by phone and see if your 
-pet was found - searching your area code.
+pet was found - searching your zip code.
 
 http://laf.heroku.com
 

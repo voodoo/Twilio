@@ -22,8 +22,13 @@ ActionMailer::Base.smtp_settings = {
     :user_name => TWILIO.email_user,
     :password => TWILIO.email_password 
   }
+
+HoptoadNotifier.configure do |config|
+  config.api_key = TWILIO.hoptoad
+end
+  
   
 # Wanted to put this in envs/production.rb!!!!!!!!!!!!!!!!!!!!!!!
-ExceptionNotifier.exception_recipients = %w(paul.vudmaska@gmail.com)
+#ExceptionNotifier.exception_recipients = %w(paul.vudmaska@gmail.com)
 #ExceptionNotifier.sender_address =  "'LaF Error' <#{TWILIO.email_user}>"
 
