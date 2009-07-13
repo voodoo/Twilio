@@ -24,10 +24,11 @@
               %h1= @title
             = flash_messages(:fade => 5)
             = yield
+        .warn.box{:style => 'clear:both'}
+          Feel free to submit bogus data. We are just testing and the data will be deleted anyway once 
+          we move into Alpha or Beta or Zeta or something :)    
         #footer
-          .warn.box
-            Feel free to put in bogus data. We are just testing and the data will be deleted anyway once 
-            we move into Alpha or Beta or Zeta or something :)
+
           By
           %a{ :href => "http://Integrated-Internet.com" }
             Integrated Internet

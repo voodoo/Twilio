@@ -6,6 +6,10 @@ body {
   text-align: left;
   border-top: 4px solid darkgreen; }
 
+/* background-image: url(/images/bk.png)
+ * background-position: top center
+ * background-repeat: no-repeat
+ * background-color: #030F22 */
 a:link, a:visited {
   color: #273A4D;
   text-decoration: underline; }
@@ -110,7 +114,8 @@ p em, cite {
   background-color: darkgreen;
   text-transform: uppercase;
   font-size: 14px;
-  border-bottom: 1px solid black; }
+  border-bottom: 1px solid black;
+  border-top: 2px solid #fff; }
 
 #wrapper {
   margin: 0;

@@ -1,4 +1,4 @@
-- title "Pet"
+- title "<span class='#{@pet.lost_or_found}'>Pet</span>"
 
 - if !owned?(@pet)
   %b== <span class='#{@pet.lost_or_found}'>#{@pet.lost_or_found}</span> in #{@pet.user.city}, #{@pet.user.state} #{@pet.user.zip}

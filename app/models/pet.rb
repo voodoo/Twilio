@@ -5,6 +5,12 @@ class Pet < ActiveRecord::Base
   named_scope :cats, :conditions =>  ['dog_or_cat = ?', 'Cat',], :order => 'updated_at desc'
   named_scope :found, :conditions =>  ['lost_or_found = ?', 'Found',], :order => 'updated_at desc'
   named_scope :lost, :conditions => ['lost_or_found = ?', 'Lost',], :order => 'updated_at desc'
+  
+  # take out chars from mask
+  def before_validation
+    self.weight.gsub!(/\D/,'')
+  end
+  
   def no_name
     if self.name.blank?
       'Unknown name'

@@ -84,6 +84,12 @@ Some other software I used/stole
 
 * http://github.com/webficient/twilio/tree/master
   a nice gem/plugin for programatically generating xml with Twilio classes
+* Condition Builder
+* jrails
+* rails_flash_notifier, field_set_forms
+* state_select
+* acts_as_list
+* action_mailer_optional_tls
 * Haml/Sass
 * Will Paginate
 * iUi(iPhone) - the css at least - probably move to something else that likes forms better

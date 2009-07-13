@@ -23,7 +23,8 @@
         = pet.color
       %br/
       %b== <span class='#{pet.lost_or_found}'>#{pet.lost_or_found}</span> in #{pet.user.city}, #{pet.user.state} #{pet.user.zip}
-              
+      %br/
+      %em= pet.updated_at.to_s(:long)        
       
         
 = will_paginate(@pets)        

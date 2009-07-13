@@ -2,30 +2,30 @@ class PetsController < ApplicationController
   before_filter :login_required, :only => [:new, :create, :edit, :update]
   def index
     @title = "All Pets"
-    @pets = Pet.all.paginate(:page => params[:page])
+    @pets = Pet.all(:order => 'updated_at desc').paginate(:page => params[:page])
   end
 
   def lost
     @title = "Lost Pets"
-    @pets = Pet.find_all_by_lost_or_found('Lost').paginate(:page => params[:page])
+    @pets = Pet.find_all_by_lost_or_found('Lost',:order => 'updated_at desc').paginate(:page => params[:page])
     render :action => :index
   end
   
   def found
     @title = "Found Pets"
-    @pets = Pet.find_all_by_lost_or_found('Found').paginate(:page => params[:page])
+    @pets = Pet.find_all_by_lost_or_found('Found',:order => 'updated_at desc').paginate(:page => params[:page])
     render :action => :index
   end
   
   def cats
     @title = "Pets - Cats"
-    @pets = Pet.find_all_by_dog_or_cat('Cat').paginate(:page => params[:page])
+    @pets = Pet.find_all_by_dog_or_cat('Cat',:order => 'updated_at desc').paginate(:page => params[:page])
     render :action => :index
   end
   
   def dogs
     @title = "Pets - Dogs"
-    @pets = Pet.find_all_by_dog_or_cat('Dog').paginate(:page => params[:page])
+    @pets = Pet.find_all_by_dog_or_cat('Dog',:order => 'updated_at desc').paginate(:page => params[:page])
     render :action => :index
   end
       
